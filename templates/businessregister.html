@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" >
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>BussinessRegistration</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://use.fontawesome.com/080b24a26b.js"></script>
+     <link href="{% static 'css/two.css' %}" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'js/one.js' %}"></script>
+      <link href="{% static 'css/page.css' %}" type="text/css" rel="stylesheet">
+      <link rel = "icon" href ="{% static 'image/facebk.png' %}" type = "image/x-icon">
+</head>
+<body>
+
+<div class="vertical-nav bg-white" id="sidebar">
+  <div class="py-4 px-3 mb-4 bg-light">
+    <div class="media d-flex align-items-center"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+      <div class="media-body">
+        <h4 class="m-0">{{name}}</h4>
+        <p class="font-weight-light text-muted mb-0">Business Manager</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href=" businesspage" class="nav-link text-dark font-italic bg-light">
+                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                Home
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="business" class="nav-link text-dark font-italic">
+                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                    Bussiness Registration
+            </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="businessdetailsupdate" class="nav-link text-dark font-italic">
+                <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
+              profileupdate
+            </a>
+    </li>
+  </ul>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Charts</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="updatestatus" class="nav-link text-dark font-italic">
+                <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
+          Status update
+
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="logout" class="nav-link text-dark font-italic">
+                <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
+          Logout
+
+            </a>
+    </li>
+
+  </ul>
+</div>
+
+
+
+<div class="page-content p-5" id="content">
+
+{% block content %}
+
+<div class="container justify-content-center">
+    <div class="card container mt-5" style="min-width:50%;margin:0 auto;background-color:#023474;color:#023474;max-width:50%;">
+        <div class="card-body">
+            <h1 style="color:white;text-align:center;margin-bottom:-3%;margin-top:25px;">REGISTER</h1><br>
+            <form method="POST" action="business" enctype="multipart/form-data">
+
+                {% csrf_token%}
+                <table class="table">
+                    <center><h4><i>{{error}}</i></h4></center>
+                     <tr>
+                        <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-user icon" ></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                     <input type="text" class="form-control" name="name" placeholder="username" />
+                                </div>
+                            </td>
+                        </div>
+
+                    </tr>
+                     <tr>
+                        <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-user icon" ></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                     <input type="text" class="form-control" name="companyname" placeholder="Companyname" />
+                                </div>
+                            </td>
+                        </div>
+
+                    </tr>
+
+
+                    <tr>
+                        <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-address-card icon" ></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                    <input type="text" class="form-control" name="address" placeholder="Address" />
+                                </div>
+                            </td>
+                        </div>
+                    </tr>
+
+
+
+                     <tr>
+                            <div class="cardp input-group">
+                                <td>
+                                    <div class="d-inline">
+                                        <span class="input-group-addon"> <i class="fa fa-phone icon" aria-hidden="true"></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-inline">
+                                        <input type="contactno" class="form-control" name="contactno" placeholder="Contact No" />
+                                    </div>
+                                </td>
+                            </div>
+                    </tr>
+
+                     <tr>
+                        <div class="cardp input-group">
+                                <td>
+
+                                        <span class="input-group-addon"> <i class="fa fa-genderless icon"></i></span>
+
+                                <td>
+
+                          <div class="d-inline">
+                                        <input type="text" class="form-control" name="rating" placeholder="rating" />
+                                    </div>
+
+
+                                    </div>
+                                </td>
+                        </div>
+                    </tr>
+
+
+         <tr>
+                            <div class="cardp input-group">
+                                <td>
+                                    <div class="d-inline">
+                                        <span class="input-group-addon"> <i class="fa fa-flag icon" aria-hidden="true"></i></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-inline">
+
+
+
+                                          <select name="source" class="form-control" >
+
+                                            <option>Select Company:</option>
+                                            <option>Google</option>
+                                            <option>Yelp</option>
+                                            <option>Yahoo</option>
+                                            <option>Foursquare</option>
+                                            <option>Facebook</option>
+
+                                          </select>
+                                    </div>
+
+
+                                    </div>
+                                </td>
+                        </div>
+                    </tr>
+      <tr>
+                        <div class="cardp input-group">
+                            <td>
+                                <div class="d-inline">
+                                    <span class="input-group-addon"> <i class="fa fa-address-card icon" ></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-inline">
+                                    <input type="file" class="form-control" name="picture" placeholder="Companyicon" />
+                                </div>
+                            </td>
+                        </div>
+                    </tr>
+
+
+
+
+
+
+
+
+                </table>
+                <div class="d-flex justify-content-center">
+                    <input type="submit" class="btn btn-info " value="Sign Up">
+                </div>
+            </form><br>
+
+        </div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}
+<style>
+body{
+
+	background-image:url("{% static 'image/b8.jpg' %}");
+	background-size:cover;
+
+
+}
+</style>
+
+</body>
+</html>

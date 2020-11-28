@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" >
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Bussinesspage</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://use.fontawesome.com/080b24a26b.js"></script>
+     <link href="{% static 'css/two.css' %}" type="text/css" rel="stylesheet">
+     <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'js/one.js' %}"></script>
+      <link rel = "icon" href ="{% static 'image/facebk.png' %}" type = "image/x-icon">
+
+</head>
+<body>
+
+<div class="vertical-nav bg-white" id="sidebar">
+  <div class="py-4 px-3 mb-4 bg-light">
+    <div class="media d-flex align-items-center"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+      <div class="media-body">
+        <h4 class="m-0">{{name}}</h4>
+        <p class="font-weight-light text-muted mb-0">Business Manager</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href=" businesspage" class="nav-link text-dark font-italic bg-light">
+                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                Home
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="business" class="nav-link text-dark font-italic">
+                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                    Bussiness Registration
+            </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="businessdetailsupdate" class="nav-link text-dark font-italic">
+                <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
+              profileupdate
+            </a>
+    </li>
+  </ul>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Charts</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="updatestatus" class="nav-link text-dark font-italic">
+                <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
+          Status update
+
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="logout" class="nav-link text-dark font-italic">
+                <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
+          Logout
+
+            </a>
+
+  </ul>
+</div>
+
+<div class="page-content p-5" id="content">
+{% if user %}
+<ol>
+    <table id="customers">
+
+
+                    <tr>
+                            <th></th>
+                            <th>Source</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                             <th>Phone</th>
+                             <th>Rating</th>
+                            <th>Listed</th>
+                           <th>Status</th>
+                         <th>Action</th>
+
+
+                    </tr>
+
+
+      {% for e in user %}
+         <form action="update" method="POST" enctype="multipart/form-data">
+                 {% csrf_token %}
+                    <tr>
+                        <td><img src="{{e.data.url}}" style="width:30px"></td>
+
+
+       <td><input type="name" class="form-control" readonly value="{{e.source}}" name="source"></td>
+                        <td><input type="name" class="form-control" value="{{e.companyname}}" name="companyname"></td>
+
+                        <td><input type="address" class="form-control" value="{{e.address}}" name="address"></td>
+                         <td><input type="contactno" class="form-control" value="{{e.contactno}}" name="contactno"></td>
+                        <td><input type="rating" class="form-control" value="{{e.rating}}" name="rating"></td>
+                          {% if e.status == 0 and e.listed == 0 %}
+                        <td>No</td>
+
+                        <td><i class="fa fa-times" style="font-size:45px;color:red"></i></td>
+
+                        {% else %}
+
+                        <td>Yes</td>
+
+                        <td><i class="fa fa-check" style="font-size:45px;color:green"></i></td>
+
+                            {% endif %}
+
+
+
+
+
+                        <td><button type="submit" class="btn btn-lg btn-primary"  value="{{e.bid}}" name="btn">Update</button></td>
+
+                        </tr>
+
+
+
+                       <td>{{error}}</td>
+                </div>
+
+            </ul>
+
+        </form>
+      {% endfor %}
+
+    </table>
+</ol>
+{% endif %}
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+

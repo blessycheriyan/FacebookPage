@@ -1,0 +1,120 @@
+﻿
+.header {
+    width: 100%;
+   
+    height: 85px;
+    background: #3b5998;
+}
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.logo-text {
+    text-decoration: none;
+    font-family: Helvetica, Arial, sans-serif;
+    color: white;
+    font-size: 38px;
+    font-weight: bold;
+    margin-left:48px;
+}
+.logo {
+    width: 50%;
+    padding-top: 32px;
+    float:left;
+
+}
+.login {
+    margin-top: 10px;
+    color: white;
+    width: 50%;
+    float: left;
+}
+.sub-btn {
+    background: #4267b2;
+    color:#fff;
+    height:20px;
+    cursor:pointer;
+    border-color:#29487d;
+
+}
+.sub-btn:hover{
+    color:white;
+}
+.login-label2 {
+    color: #9cb4d8;
+}
+.left-session {
+    padding-top: 37px;
+    width: 50%;
+    float: left;
+    padding-left: 20px;
+}
+.right-session {
+    width: 39%;
+    float: right;
+}
+
+.main-body {
+    background: linear-gradient(white, #D3D8E8);
+    width: 100%;
+    height: 700px;
+}
+.image {
+    width: 110%;
+    
+}
+.para {
+    font-weight: bold;
+    font-size: 23px
+}
+.one {
+    padding-top: 29px;
+}
+.on {
+    margin-top: -11px;
+    font-size: 19px;
+}
+.key {
+    margin-bottom: 10px;
+    height: 30px;
+    width: 203px;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.keys {
+    margin-bottom: 10px;
+    width: 297px;
+    height: 30px;
+    border-radius: 6px;
+    font-size: 15px;
+}
+.name {
+    color: #90949c;
+}
+.opt {
+    height: 31px;
+    width: 54px;
+}
+.parags {
+    color: #90949c;
+    font-size: 12px;
+}
+.btn {
+    color: white;
+    height: 34px;
+    width: 215px;
+    background: green;
+    border-radius: 10px;
+}
+
+.final {
+    padding-left: 44px;
+    color: blue;
+    font-size: 12px;
+}
+.finals {
+    padding-left: 44px;
+    color: #90949c;
+    font-size: 12px;
+}
